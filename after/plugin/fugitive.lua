@@ -1,0 +1,16 @@
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+-- vim.keymap.set("n", "<leader>ga" :Git add %:p<CR><CR>
+-- vim.keymap.set("n", "<leader>gs" :Gstatus<CR>
+-- vim.keymap.set("n", "<leader>gc" :Gcommit -v -q<CR>
+-- vim.keymap.set("n", "<leader>gt" :Gcommit -v -q %:p<CR>
+-- vim.keymap.set("n", "<leader>gd" :Gdiff<CR>
+-- vim.keymap.set("n", "<leader>ge" :Gedit<CR>
+-- vim.keymap.set("n", "<leader>gr" :Gread<CR>
+-- vim.keymap.set("n", "<leader>gw" :Gwrite<CR><CR>
+-- vim.keymap.set("n", "<leader>gl" :silent! Glog<CR>:bot copen<CR>
+-- vim.keymap.set("n", "<leader>gp" :Ggrep<Space>
+-- vim.keymap.set("n", "<leader>gm" :Gmove<Space>
+-- vim.keymap.set("n", "<leader>gb" :Git branch<Space>
+-- vim.keymap.set("n", "<leader>go" :Git checkout<Space>
+-- vim.keymap.set("n", "<leader>gps" :Dispatch! git push<CR>
+-- vim.keymap.set("n", "<leader>gpl" :Dispatch! git pull<CR>
