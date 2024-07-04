@@ -1,3 +1,4 @@
+-- use spase key as leader
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

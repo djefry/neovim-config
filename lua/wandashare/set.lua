@@ -26,6 +26,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = {"80", "100", "120"}
+vim.opt.colorcolumn = {"80", "100", "120", "150"}
 
 vim.g.mapleader = " "
+
+vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/python3"

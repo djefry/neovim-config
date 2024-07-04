@@ -30,3 +30,56 @@ require('mason-lspconfig').setup({
     lsp_zero.default_setup,
   },
 })
+
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      keys = {
+          { "K", false },
+      },
+      plugins = {
+        pycodestyle = {
+          enabled = true,
+          maxLineLength = 120
+        },
+        pylint = {
+          enabled = false,
+        },
+        pydocstyle = {
+          ignore = {"D203", "D204", "D404", "D407", "D205", "D212", "D400", "D415"},
+          enabled = true
+        },
+        pylsp_mypy = {
+          enabled = false
+        },
+        pylsp_rope = {
+          enabled = true
+        },
+        flake8 = {
+          enabled = false
+        },
+        isort = {
+          enabled = true
+        },
+        jedi = {
+          auto_import_modules = true
+        },
+        jedi_completion = {
+          enabled = true
+        },
+        jedi_definition = {
+          enabled = false
+        },
+        jedi_references = {
+          enabled = false
+        }
+      }
+    }
+  }
+}
+
+require'lspconfig'.pyright.setup{
+  settings = {
+  }
+}
