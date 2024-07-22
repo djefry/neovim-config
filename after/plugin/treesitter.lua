@@ -1,3 +1,10 @@
+local disable_function = function(lang)
+  local buf_name = vim.fn.expand("%")
+  if lang == "javascript" or lang == "typescript" and string.find(buf_name, "%.min.js") then
+    return true
+  end
+end
+
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "c", "javascript", "lua", "query", "python", "rust", "typescript", "vim", "vimdoc" },
@@ -17,5 +24,6 @@ require'nvim-treesitter.configs'.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
+    disable = disable_function,
   },
 }
