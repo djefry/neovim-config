@@ -74,5 +74,6 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'ldelossa/nvim-dap-projects'
 Plug 'nvim-neotest/nvim-nio'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 vim.call('plug#end')
