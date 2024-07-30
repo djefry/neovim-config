@@ -1,6 +1,10 @@
 -- })
 
 require('nvim-dap-projects').search_project_config()
+
+-- Enable virtual text
+require("nvim-dap-virtual-text").setup()
+
 local dap, dapui = require("dap"), require("dapui")
 dapui.setup()
 
