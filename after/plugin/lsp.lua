@@ -22,9 +22,7 @@ vim.diagnostic.config({
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'bashls', 'cucumber_language_server', 'dockerls', 'docker_compose_language_service',
-    'jsonls', 'ltex', 'marksman', 'spectral', 'sqlls', 'yamlls',
-    'lua_ls'
+    'marksman', 'lua_ls'
   },
   handlers = {
     lsp_zero.default_setup,
