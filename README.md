@@ -38,7 +38,7 @@
 Note: If you don't have ripgrep installed in your machine you need to install it to support file searching using telescope
 
 ### General
-1. Vim <leader> change to `Space` can change in basic configuration `~/.config/nvim/lua/wandashare/`
+1. Vim `<leader>` change to `Space` can change in basic configuration `~/.config/nvim/lua/wandashare/`
 2. Using default directory management can be access using shortcut `<leader> + p + v`
 
 
@@ -47,7 +47,7 @@ You can configure and change the shortcut key according to your need, but these 
 LSP shortcut key: ~/.config/nvim/after/plugin/lsp.lua
 Telescope shortcut key: ~/.config/nvim/after/plugin/telescope.lua
 1. Go to file definition `gd` to go back to previous pointer can use default shortcut `<Ctrl> + o`
-2. Peek to function definition or constant `K` (<Shift> + k)
+2. Peek to function definition or constant `K` (Shift + k)
 3. If your LSP support code action you can access via `<leader> + vca`
 4. To list all function caller or refferences press `<leader> + vrr`
 5. To rename function name and refactor all the caller use `<leader> + vrn` don't forget to save all before running another rename using `:wa`
