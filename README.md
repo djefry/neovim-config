@@ -44,8 +44,8 @@ Note: If you don't have ripgrep installed in your machine you need to install it
 
 ### Shortcut Key
 You can configure and change the shortcut key according to your need, but these are the shortcut key that mostly used.
-LSP shortcut key: ~/.config/nvim/after/plugin/lsp.lua
-Telescope shortcut key: ~/.config/nvim/after/plugin/telescope.lua
+- LSP shortcut key: ~/.config/nvim/after/plugin/lsp.lua
+- Telescope shortcut key: ~/.config/nvim/after/plugin/telescope.lua
 1. Go to file definition `gd` to go back to previous pointer can use default shortcut `<Ctrl> + o`
 2. Peek to function definition or constant `K` (Shift + k)
 3. If your LSP support code action you can access via `<leader> + vca`
