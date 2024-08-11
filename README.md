@@ -8,13 +8,16 @@
 3. Clone this repo to your .config directory `git clone https://github.com/djefry/neovim-config`
 4. Rename the directory to nvim `mv neovim-config nvim`
 5. Install vim-plug (simple vim plugin manager)
-6. `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'` or can check here https://github.com/junegunn/vim-plug
-7. Open the neovim, there will be error because we haven't install the plugin, press any key or q until you get into the neovim editor
-8. Install the plugin by typing `:PlugInstall` after finish close and open again, there should be no error
-9. Install your respective programming langguage syntax-coloring using treesitter can check the supported language [here](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages)
-10. You can install one by one or multiple like this `:TSInstall python` or `:TSInstall graphql html hjson java javascript kotlin latex lua comment`
-11. Install the LSP (Language Server Protocol) to enable auto-completion suggestion and error check
-12. In the configuration itself I've default LSP that will auto-install on start if not available can check in this file
+   ```
+   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+   ```
+   or can check here https://github.com/junegunn/vim-plug
+8. Open the neovim, there will be error because we haven't install the plugin, press any key or q until you get into the neovim editor
+9. Install the plugin by typing `:PlugInstall` after finish close and open again, there should be no error
+10. Install your respective programming langguage syntax-coloring using treesitter can check the supported language [here](https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#supported-languages)
+11. You can install one by one or multiple like this `:TSInstall python` or `:TSInstall graphql html hjson java javascript kotlin latex lua comment`
+12. Install the LSP (Language Server Protocol) to enable auto-completion suggestion and error check
+13. In the configuration itself I've default LSP that will auto-install on start if not available can check in this file
     ~/.config/nvim/after/plugin/lsp.lua
     ```
     require('mason').setup({})
@@ -27,12 +30,12 @@
       },
     })
     ```
-13. To install additional LSP, from inside neovim normal mode press `:Mason`
-14. Press number 2 to list all the LSP
-15. Press `/python` and press Enter to search python for example if you want to install other language just change the terms after /
-16. Press `i` to install
-17. Press `gg` to go to the top of the line to see the installation progress
-18. Press `q` to exit from mason
+14. To install additional LSP, from inside neovim normal mode press `:Mason`
+15. Press number 2 to list all the LSP
+16. Press `/python` and press Enter to search python for example if you want to install other language just change the terms after /
+17. Press `i` to install
+18. Press `gg` to go to the top of the line to see the installation progress
+19. Press `q` to exit from mason
 18. Your neovim is ready to use.
 
 Note: If you don't have ripgrep installed in your machine you need to install it to support file searching using telescope
