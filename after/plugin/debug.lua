@@ -7,7 +7,7 @@ table.insert(require('dap').configurations.python, {
   type = 'python',
   request = 'launch',
   module = "flask",
-  env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"},
+  env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
   args = {"run", "--no-debugger"},  -- to avoid debugger clash we only use debugger from debugpy
   pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
   console= "integratedTerminal"
