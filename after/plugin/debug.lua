@@ -1,6 +1,40 @@
 -- local util = require('lspconfig.util')
 require('dap-python').setup("/home/wandashare/.pyenv/versions/debugpy/bin/python")
 
+-- Custom setup to run debug
+table.insert(require('dap').configurations.python, {
+  name = 'Flask',
+  type = 'python',
+  request = 'launch',
+  module = "flask",
+  env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"},
+  args = {"run", "--no-debugger"},  -- to avoid debugger clash we only use debugger from debugpy
+  pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
+  console= "integratedTerminal"
+})
+
+-- Custom setup to run using container
+-- table.insert(require('dap').configurations.python, {
+--   name = 'Flask Container Run',
+--   type = 'python',
+--   request = 'attach',
+--   pythonArgs = "docker command debugpy --wait-for-client --listen 0.0.0.0:5678",
+--   connect = function()
+--     local host = vim.fn.input('Host [127.0.0.1]: ')
+--     host = host ~= '' and host or '127.0.0.1'
+--     local port = tonumber(vim.fn.input('Port [5678]: ')) or 5678
+--     return { host = host, port = port }
+--   end,
+--   pathMappings = function()
+--     local cwd = '${workspaceFolder}'
+--     local local_path = vim.fn.input('Local path mapping [' .. cwd .. ']: ')
+--     local_path = local_path ~= '' and local_path or cwd
+--     local remote_path = vim.fn.input('Remote path mapping [.]: ')
+--     remote_path = remote_path ~= '' and remote_path or '.'
+--     return { { localRoot = local_path, remoteRoot = remote_path }, }
+--   end
+-- })
+
 -- local function pwd()
 --   return util.root_pattern('.git', 'setup.py', 'Makefile')(vim.fn.expand('%:p:h')) or vim.fn.getcwd()
 -- end
@@ -13,35 +47,6 @@ require('dap-python').setup("/home/wandashare/.pyenv/versions/debugpy/bin/python
 --   program = "${file}",
 --   cwd = pwd().."/",  -- Use Neovim's current working directory
 --   env = {["PYTHONPATH"] = pwd().."/"},
--- })
---
--- table.insert(require('dap').configurations.python, {
---   type = 'python',
---   request = 'launch',
---   name = 'Flask Run',
---   program = "wsgi.py",
---   cwd = pwd().."/",  -- Use Neovim's current working directory
---   env = {["PYTHONPATH"] = pwd().."/"},
--- })
--- table.insert(require("dap").configurations.python, {
---   type = "python",
---   request = "attach",
---   connect = {
---     port = 5001,
---     host = "0.0.0.0",
---   },
---   mode = "remote",
---   name = "Container Attach (with choose remote dir)",
---   cwd = vim.fn.getcwd(),
---   pathMappings = {
---     {
---       localRoot = vim.fn.getcwd(),
---       remoteRoot = function()
---         -- NEED to choose correct folder for set breakpoints
---         return vim.fn.input("Container code folder > ", ".", "file")
---       end,
---     },
---   },
 -- })
 
 require('nvim-dap-projects').search_project_config()
