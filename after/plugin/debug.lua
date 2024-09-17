@@ -8,9 +8,36 @@ table.insert(require('dap').configurations.python, {
   request = 'launch',
   module = "flask",
   env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
-  args = {"run", "--no-debugger"},  -- to avoid debugger clash we only use debugger from debugpy
+  args = {"run", "--no-debugger"},  -- "--no-debugger" to avoid debugger clash we only use debugger from debugpy
   pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
   console= "integratedTerminal"
+})
+
+-- Custom setup to run debug with eager-load
+table.insert(require('dap').configurations.python, {
+  name = 'Flask Eager Load with Gevent',
+  type = 'python',
+  request = 'launch',
+  module = "flask",
+  env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
+  args = {"run", "--eager-loading", "--no-debugger" },  -- "--no-debugger" t to avoid debugger clash we only use debugger from debugpy
+  pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
+  console = "integratedTerminal",
+  gevent = true
+})
+
+table.insert(require('dap').configurations.python, {
+  name= "Pytest: Current File",
+  type= "python",
+  request= "launch",
+  module= "pytest",
+  args= {
+      "${file}",
+      "-sv",
+      "--log-cli-level=INFO",
+      "--log-file=test_out.log"
+  },
+  console= "integratedTerminal",
 })
 
 -- Custom setup to run using container
