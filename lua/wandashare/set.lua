@@ -26,8 +26,21 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = {"80", "100", "120", "150"}
+vim.opt.colorcolumn = {"120"}
 
 vim.g.mapleader = " "
 
 vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/python3"
+
+--vim.api.nvim_create_autocmd("BufWritePost", {
+--  pattern = "*.py",
+--  callback = function()
+--    local ruff_bin = vim.fn.expand("$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/ruff")
+--    -- fix lint issues
+--    vim.fn.system({ruff_bin, "check", "--fix", vim.fn.expand("%")})
+--    -- format code (adds trailing commas, rewraps long lines, etc.)
+--    vim.fn.system({ruff_bin, "format", vim.fn.expand("%")})
+--    -- reload buffer after external change
+--    vim.cmd("edit")
+--  end,
+--})
