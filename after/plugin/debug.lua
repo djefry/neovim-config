@@ -1,5 +1,6 @@
 -- local util = require('lspconfig.util')
 require('dap-python').setup("/home/wandashare/.pyenv/versions/debugpy/bin/python")
+require('dap-python').test_runner = 'pytest'
 
 -- Custom setup to run debug
 table.insert(require('dap').configurations.python, {
@@ -10,20 +11,47 @@ table.insert(require('dap').configurations.python, {
   env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
   args = {"run", "--no-debugger"},  -- "--no-debugger" to avoid debugger clash we only use debugger from debugpy
   pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
-  console= "integratedTerminal"
+  console = "integratedTerminal"
 })
 
--- Custom setup to run debug with eager-load
+-- Custom setup to run debug
 table.insert(require('dap').configurations.python, {
-  name = 'Flask Eager Load with Gevent',
+  name = 'Flask [include-other]',
   type = 'python',
   request = 'launch',
   module = "flask",
   env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
-  args = {"run", "--eager-loading", "--no-debugger" },  -- "--no-debugger" t to avoid debugger clash we only use debugger from debugpy
+  args = {"run", "--no-debugger"},  -- "--no-debugger" to avoid debugger clash we only use debugger from debugpy
+  pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
+  console = "integratedTerminal",
+  justMyCode = false
+})
+
+-- Custom setup to run debug with eager-load
+table.insert(require('dap').configurations.python, {
+  name = 'Flask with Gevent',
+  type = 'python',
+  request = 'launch',
+  module = "flask",
+  env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
+  args = {"run", "--no-debugger" },  -- "--no-debugger" t to avoid debugger clash we only use debugger from debugpy
   pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
   console = "integratedTerminal",
   gevent = true
+})
+
+-- Custom setup to run debug with eager-load
+table.insert(require('dap').configurations.python, {
+  name = 'Flask with Gevent [include-other]',
+  type = 'python',
+  request = 'launch',
+  module = "flask",
+  env = {["FLASK_APP"] = "wsgi.py", ["FLASK_ENV"] = "development"}, -- change wsgi.py to your main app
+  args = {"run", "--no-debugger" },  -- "--no-debugger" t to avoid debugger clash we only use debugger from debugpy
+  pythonArgs = {"-Xfrozen_modules=off", "-Xdev"}, -- disable frozen module
+  console = "integratedTerminal",
+  gevent = true,
+  justMyCode = false
 })
 
 table.insert(require('dap').configurations.python, {
@@ -38,6 +66,20 @@ table.insert(require('dap').configurations.python, {
       "--log-file=test_out.log"
   },
   console= "integratedTerminal",
+  gevent = true
+})
+
+table.insert(require('dap').configurations.python, {
+  name = "Pytest: with Arguments",
+  type = 'python';
+  request = 'launch';
+  module = "pytest";
+  args = function()
+      local dir_or_file = vim.fn.input("Directory or file name : ")
+      return {"${workspaceFolder}/"..dir_or_file}
+  end,
+  console = "integratedTerminal",
+  gevent = true
 })
 
 -- Custom setup to run using container
