@@ -40,8 +40,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 
-Plug ('VonHeikemen/lsp-zero.nvim', { branch = 'v3.x'})
-
 -- nvim tmux navigator
 Plug 'alexghergh/nvim-tmux-navigation'
 
@@ -54,8 +52,8 @@ Plug 'ray-x/lsp_signature.nvim'
 -- rainbow indent
 Plug 'lukas-reineke/indent-blankline.nvim'
 
--- python refactoring
-Plug 'python-rope/ropevim'
+-- file explorer
+Plug 'stevearc/oil.nvim'
 
 -- neovim statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -71,7 +69,6 @@ Plug 'nvim-tree/nvim-web-devicons'
 -- Python Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'mfussenegger/nvim-dap-python'
 Plug 'ldelossa/nvim-dap-projects'
 Plug 'nvim-neotest/nvim-nio'
 
