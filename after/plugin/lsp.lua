@@ -82,71 +82,79 @@ vim.lsp.config["lua_ls"] = {
 }
 
 -- Pylsp LSP config
-vim.lsp.config["pylsp"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    pylsp = {
-      keys = {
-        { "K", false },
-      },
-      plugins = {
-        black = { enabled = false },
-        ruff = { enabled = false },
-        pycodestyle = { enabled = false },
-        pyflakes = { enabled = false },
-        pylint = {
-          enabled = true,
-          args = { "--max-line-length=120 --disable=import-error,unused-import" }
-        },
-        pydocstyle = { enabled = true, ignore = { "D203", "D204", "D404", "D407", "D205", "D212", "D400", "D415" } },
-        pylsp_mypy = { enabled = true },
-        pylsp_rope = { enabled = true },
-        flake8 = { enabled = false },
-        isort = { enabled = true },
-        jedi = { enabled = false },
-        jedi_completion = { enabled = true },
-        jedi_definition = { enabled = false },
-        jedi_references = { enabled = false },
-        jedi_hover = { enabled = false },
-        jedi_signature_help = { enabled = false },
-        autopep8 = { enabled = false },
-        yapf = { enabled = false },
-        mccabe = { enabled = false },
-      }
-    }
-  }
-}
-
--- Autostart servers on FileType
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "python" },
-  callback = function()
-    local ft = vim.bo.filetype
-    local server = ({
-      lua = "lua_ls",
-      python = "pylsp",
-    })[ft]
-    if server then
-      vim.lsp.start(vim.lsp.config[server])
-    end
-  end,
-})
-
---require("lspconfig").pyright.setup {
+--vim.lsp.config["pylsp"] = {
+--  on_attach = on_attach,
+--  capabilities = capabilities,
 --  settings = {
---    python = {
---      analysis = {
---        autoImportCompletions = true,  -- Enable auto-imports
---        typeCheckingMode = "basic",    -- Ensure type checking is on
+--    pylsp = {
+--      keys = {
+--        { "K", false },
+--      },
+--      plugins = {
+--        black = { enabled = false },
+--        ruff = {
+--          enabled = true,
+--          extendSelect = { "E", "F", "I" }, -- enable extra checks
+--          extendIgnore = {  },
+--          formatEnabled = true,
+--          preview = true,
+--          unsafeFixes = false,
+--        },
+--        pycodestyle = { enabled = false },
+--        pyflakes = { enabled = false },
+--        pylint = {
+--          enabled = false,
+--          args = { "--max-line-length=120 --disable=import-error,unused-import" }
+--        },
+--        pydocstyle = { enabled = true, ignore = { "D400", "D407", "D409" } },--"D203", "D204", "D205", "D212", "D415" } },
+--        pylsp_mypy = { enabled = false },
+--        pylsp_rope = { enabled = false },
+--        flake8 = { enabled = false },
+--        isort = { enabled = false },
+--        jedi = { enabled = false },
+--        jedi_completion = { enabled = false },
+--        jedi_definition = { enabled = false },
+--        jedi_references = { enabled = false },
+--        jedi_hover = { enabled = false },
+--        jedi_signature_help = { enabled = false },
+--        autopep8 = { enabled = false },
+--        yapf = { enabled = false },
+--        mccabe = { enabled = false },
 --      }
 --    }
 --  }
 --}
 
---require('lspconfig').ruff.setup{
---  filetypes = { "python" },  -- Run only for Python files
---  settings = {
---    args = {},  -- Add any extra arguments if needed
---  }
---}
+
+vim.lsp.config["pyright"] = {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "basic",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+    pyright = {
+      disableOrganizeImports = true,
+      disableLanguageServices = false,
+      autoImportCompletion = false,
+    },
+  },
+}
+
+vim.lsp.config["ruff"] = {
+  filetypes = { "python" },
+  settings = {
+    args = {},
+    ruff = {
+      extendSelect = { "D", "E", "F", "I", "UP", "N" },
+      extendIgnore = { "D203", "D205", "D212", "D400", "D407", "D409", "D415" },
+      format = { "I" },
+      unsafeFixes = false,
+      preview = true,
+    }
+  }
+}
