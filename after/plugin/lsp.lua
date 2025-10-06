@@ -69,3 +69,34 @@ vim.lsp.config["lua_ls"] = {
     },
   },
 }
+
+-- Gopls LSP config
+vim.lsp.config["gopls"] = {
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+      -- Other gopls settings can be added here
+      usePlaceholders = true, -- Example for snippet placeholders
+      completeUnimported = true,
+      semanticTokens = true,
+      ["ui.inlayhint.hints"] = {
+        compositeLiteralFields = true,
+        constantValues = true,
+        parameterNames = true,
+        functionTypeParameters = true,
+      },
+    },
+  },
+}
+
+-- Autocommand for formatting Go files on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
+})
