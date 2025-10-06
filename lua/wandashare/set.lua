@@ -44,3 +44,27 @@ vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/python3
 --    vim.cmd("edit")
 --  end,
 --})
+
+-- Ruff format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.py",
+  callback = function()
+    vim.lsp.buf.format({ async = false, name = "ruff" })
+  end,
+})
+
+-- Two spaces tabstop settings
+local two_space_filetypes = {
+  "javascript", "typescript", "typescriptreact",
+  "json", "jsonc", "yaml", "yml",
+  "css", "scss", "sass", "html", "vue", "markdown"
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = two_space_filetypes,
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
