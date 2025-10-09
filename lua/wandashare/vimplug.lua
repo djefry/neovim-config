@@ -4,7 +4,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- telescome for fuzzy finder
 Plug 'nvim-lua/plenary.nvim'
-Plug ('nvim-telescope/telescope.nvim', { tag = '0.1.4' })
+Plug ('nvim-telescope/telescope.nvim', { tag = '0.1.8' })
 -- or                                , { branch = '0.1.x' }
 
 -- nvim colorscheme
@@ -40,8 +40,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 
-Plug ('VonHeikemen/lsp-zero.nvim', { branch = 'v3.x'})
-
 -- nvim tmux navigator
 Plug 'alexghergh/nvim-tmux-navigation'
 
@@ -54,9 +52,6 @@ Plug 'ray-x/lsp_signature.nvim'
 -- rainbow indent
 Plug 'lukas-reineke/indent-blankline.nvim'
 
--- python refactoring
-Plug 'python-rope/ropevim'
-
 -- neovim statusline
 Plug 'nvim-lualine/lualine.nvim'
 -- If you want to have icons in your statusline choose one of these
@@ -68,14 +63,10 @@ Plug 'nvim-tree/nvim-web-devicons'
 -- Plug 'MunifTanjim/nui.nvim'
 -- Plug ('giusgad/pets.nvim', { requires = {'giusgad/hologram.nvim', 'MunifTanjim/nui.nvim'}})
 
--- Python Debugger
+-- Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'mfussenegger/nvim-dap-python'
 Plug 'ldelossa/nvim-dap-projects'
 Plug 'nvim-neotest/nvim-nio'
-
--- Markdown Plugin
-Plug 'OXY2DEV/markview.nvim'
 
 vim.call('plug#end')
