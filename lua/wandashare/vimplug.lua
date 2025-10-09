@@ -75,4 +75,7 @@ Plug 'mfussenegger/nvim-dap-python'
 Plug 'ldelossa/nvim-dap-projects'
 Plug 'nvim-neotest/nvim-nio'
 
+-- Markdown Plugin
+Plug 'OXY2DEV/markview.nvim'
+
 vim.call('plug#end')
