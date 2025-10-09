@@ -52,6 +52,9 @@ Plug 'ray-x/lsp_signature.nvim'
 -- rainbow indent
 Plug 'lukas-reineke/indent-blankline.nvim'
 
+-- file explorer
+Plug 'stevearc/oil.nvim'
+
 -- neovim statusline
 Plug 'nvim-lualine/lualine.nvim'
 -- If you want to have icons in your statusline choose one of these
@@ -63,7 +66,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 -- Plug 'MunifTanjim/nui.nvim'
 -- Plug ('giusgad/pets.nvim', { requires = {'giusgad/hologram.nvim', 'MunifTanjim/nui.nvim'}})
 
--- Debugger
+-- Python Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'ldelossa/nvim-dap-projects'
