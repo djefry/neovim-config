@@ -123,3 +123,9 @@ You can configure and change the shortcut key according to your need, but these 
 10. Want to stage per-chunk use :G add -p then input y/n (if you accidentally move the scrollbar press a before inputing y/n)
 
 Note: all the search will exclude dotfiles and files inside .gitignore
+
+### Dart Language
+Install the LSP and formatter using Mason.
+1. Access Manson using  `:Mason`
+2. Search for dart usign `/dart`
+3. You'll found `dcm` then press i to install or u to update
