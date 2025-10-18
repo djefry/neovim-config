@@ -1,4 +1,4 @@
-vicreate_social_auth_login_record, m.opt.nu = true
+vim.opt.nu = true
 vim.opt.rnu = true
 
 vim.opt.tabstop = 4
