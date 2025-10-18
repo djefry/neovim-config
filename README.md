@@ -127,5 +127,5 @@ Note: all the search will exclude dotfiles and files inside .gitignore
 ### Dart Language
 Install the LSP and formatter using Mason.
 1. Access Manson using  `:Mason`
-2. Search for dart usign `/dart`
+2. Search for dart using `/dart`
 3. You'll found `dcm` then press i to install or u to update
