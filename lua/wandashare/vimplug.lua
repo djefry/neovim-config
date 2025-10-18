@@ -66,12 +66,14 @@ Plug 'nvim-tree/nvim-web-devicons'
 -- Plug 'MunifTanjim/nui.nvim'
 -- Plug ('giusgad/pets.nvim', { requires = {'giusgad/hologram.nvim', 'MunifTanjim/nui.nvim'}})
 
--- Python Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'ldelossa/nvim-dap-projects'
 Plug 'nvim-neotest/nvim-nio'
 Plug 'theHamsta/nvim-dap-virtual-text'
+
+-- Python Debugger
+Plug 'mfussenegger/nvim-dap-python'
 
 -- File Explorer
 Plug 'stevearc/oil.nvim'
