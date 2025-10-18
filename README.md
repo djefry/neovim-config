@@ -1,6 +1,6 @@
 ## This is my Neovim configuration
 - The master branch is the base configuration that I use.
-- Check branch for language specific setup and environment
+- Check branch for language specific setup and environment, you can check the additional setting at very botom of every branch
 
 ### How to use:
 1. Backup your neovim config in ~/.config/nvim
