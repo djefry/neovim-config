@@ -27,7 +27,8 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 
 -- git gutter to show the changes
-Plug 'airblade/vim-gitgutter'
+-- Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 
 -- lsp server
 --  Uncomment these if you want to manage LSP servers from neovim
@@ -38,6 +39,8 @@ Plug 'neovim/nvim-lspconfig'
 -- Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 
 -- nvim tmux navigator
@@ -51,9 +54,6 @@ Plug 'ray-x/lsp_signature.nvim'
 
 -- rainbow indent
 Plug 'lukas-reineke/indent-blankline.nvim'
-
--- file explorer
-Plug 'stevearc/oil.nvim'
 
 -- neovim statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -71,5 +71,29 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'ldelossa/nvim-dap-projects'
 Plug 'nvim-neotest/nvim-nio'
+Plug 'theHamsta/nvim-dap-virtual-text'
+
+-- File Explorer
+Plug 'stevearc/oil.nvim'
+
+-- Mini AI (text selector)
+Plug 'nvim-mini/mini.ai'
+
+-- AI Tool
+-- Some of deps already installed above
+-- Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+-- Optional deps
+-- Plug 'hrsh7th/nvim-cmp'
+-- Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'stevearc/dressing.nvim' -- for enhanced input UI
+Plug 'folke/snacks.nvim' -- for modern input UI
+
+-- Yay, pass source=true if you want to build from source
+Plug ('yetone/avante.nvim', {branch='main', ['do']='make' })
 
 vim.call('plug#end')

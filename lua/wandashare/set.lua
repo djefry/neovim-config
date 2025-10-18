@@ -1,4 +1,4 @@
-vim.opt.nu = true
+vicreate_social_auth_login_record, m.opt.nu = true
 vim.opt.rnu = true
 
 vim.opt.tabstop = 4
@@ -26,8 +26,34 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = {"80", "100", "120", "150"}
+vim.opt.colorcolumn = {"120"}
 
 vim.g.mapleader = " "
 
-vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/python3"
+
+-- Two spaces tabstop settings
+local two_space_filetypes = {
+  "javascript", "typescript", "typescriptreact",
+  "json", "jsonc", "yaml", "yml",
+  "css", "scss", "sass", "html", "vue", "markdown",
+  "lua",
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = two_space_filetypes,
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
+-- Toggleable Auto Format on Save
+-- Global flag
+_G.auto_format_enabled = true
+
+-- Toggle function
+vim.keymap.set('n', '<leader>fos', function()
+  _G.auto_format_enabled = not _G.auto_format_enabled
+  print("AutoFormat: " .. (_G.auto_format_enabled and "ON" or "OFF"))
+end, { desc = 'Toggle auto format on save' })
