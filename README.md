@@ -126,7 +126,6 @@ Note: all the search will exclude dotfiles and files inside .gitignore
 
 ### Python Language
 Install the LSP and formatter using Mason.
-
-Access Manson using :Mason
-Search for pyright, ruff, and debugpy using /pyright
-You'll found and then press i to install or u to update
+1. Access Manson using :Mason
+2. Search for pyright, ruff, and debugpy using /pyright
+3. You'll found and then press i to install or u to update
