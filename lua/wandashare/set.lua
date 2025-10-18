@@ -30,6 +30,8 @@ vim.opt.colorcolumn = {"120"}
 
 vim.g.mapleader = " "
 
+vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/python3"
+
 
 -- Two spaces tabstop settings
 local two_space_filetypes = {
