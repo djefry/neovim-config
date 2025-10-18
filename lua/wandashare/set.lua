@@ -32,26 +32,6 @@ vim.g.mapleader = " "
 
 vim.g.python3_host_prog = "$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/python3"
 
---vim.api.nvim_create_autocmd("BufWritePost", {
---  pattern = "*.py",
---  callback = function()
---    local ruff_bin = vim.fn.expand("$HOME/.pyenv/versions/3.12.0/envs/py3nvim/bin/ruff")
---    -- fix lint issues
---    vim.fn.system({ruff_bin, "check", "--fix", vim.fn.expand("%")})
---    -- format code (adds trailing commas, rewraps long lines, etc.)
---    vim.fn.system({ruff_bin, "format", vim.fn.expand("%")})
---    -- reload buffer after external change
---    vim.cmd("edit")
---  end,
---})
-
--- Ruff format on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.py",
-  callback = function()
-    vim.lsp.buf.format({ async = false, name = "ruff" })
-  end,
-})
 
 -- Two spaces tabstop settings
 local two_space_filetypes = {
@@ -68,3 +48,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+-- Toggleable Auto Format on Save
+-- Global flag
+_G.auto_format_enabled = true
+
+-- Toggle function
+vim.keymap.set('n', '<leader>fos', function()
+  _G.auto_format_enabled = not _G.auto_format_enabled
+  print("AutoFormat: " .. (_G.auto_format_enabled and "ON" or "OFF"))
+end, { desc = 'Toggle auto format on save' })
