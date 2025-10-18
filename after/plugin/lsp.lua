@@ -71,6 +71,7 @@ vim.diagnostic.config({
 
 -- Lua LSP config
 vim.lsp.config["lua_ls"] = {
+  on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     Lua = {
